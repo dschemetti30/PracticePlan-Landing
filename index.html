@@ -181,10 +181,17 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border-light);
         }
-        .hero-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light); }
-        .hero-card-title { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; font-weight: 500; }
-        .hero-card-value { font-size: 32px; font-weight: 800; color: var(--primary-green); }
-        .hero-card-badge { background: rgba(0, 118, 187, 0.1); color: var(--primary-blue); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+        .hero-card-header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light); position: relative; }
+        .hero-card-header-left { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+        .hero-card-title { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; font-weight: 500; width: 100%; order: 1; }
+        .hero-card-value { font-size: 32px; font-weight: 800; color: var(--primary-green); order: 2; }
+        .hero-card-badge { background: rgba(0, 118, 187, 0.1); color: var(--primary-blue); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; order: 3; align-self: flex-start; margin-top: 4px; }
+        @media (max-width: 480px) {
+            .hero-card-header-left { flex-direction: row; justify-content: center; align-items: center; gap: 10px; }
+            .hero-card-badge { order: 1; width: auto; margin-top: 0; }
+            .hero-card-title { order: 2; width: auto; margin-bottom: 0; }
+            .hero-card-value { order: 3; font-size: 22px; }
+        }
         .hero-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .hero-stat { padding: 16px; background: var(--off-white); border-radius: 10px; }
         .hero-stat-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
@@ -194,6 +201,11 @@
         .stat-increase { font-size: 12px; font-weight: 700; color: var(--primary-green); margin-left: 4px; }
         .stat-percentile { font-size: 10px; font-weight: 600; color: var(--accent-gray); margin-left: 6px; text-transform: lowercase; }
         .stat-percentile.above-avg { text-transform: none; }
+        .mobile-break { display: none; }
+        @media (max-width: 480px) {
+            .stat-percentile { display: block; margin-left: 0; margin-top: 2px; }
+            .mobile-break { display: block; }
+        }
 
         /* Trust Bar */
         .trust-bar { padding: 48px 0 0; background: var(--white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); overflow: hidden; }
@@ -968,11 +980,11 @@
                 <div class="hero-visual">
                     <div class="hero-card">
                         <div class="hero-card-header">
-                            <div>
+                            <div class="hero-card-header-left">
+                                <div class="hero-card-badge">Sample Report</div>
                                 <div class="hero-card-title">Annual Revenue Opportunity</div>
                                 <div class="hero-card-value">$293,400</div>
                             </div>
-                            <div class="hero-card-badge">Sample Report</div>
                         </div>
                         <div class="hero-stat-row">
                             <div class="hero-stat">
@@ -990,7 +1002,7 @@
                                 <div class="hero-stat-num highlight-blue">9% <span class="stat-percentile">25th percentile</span></div>
                             </div>
                             <div class="hero-stat">
-                                <div class="hero-stat-label">Opportunity Gap</div>
+                                <div class="hero-stat-label">Opportunity<span class="mobile-break"></span> Gap</div>
                                 <div class="hero-stat-num highlight-green">+25% <span class="stat-percentile above-avg">Above Average</span></div>
                             </div>
                         </div>
