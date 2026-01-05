@@ -1036,27 +1036,49 @@
             .about { padding: 60px 0; }
             .final-cta { padding: 60px 0 100px; }
             .solution-grid, .who-grid { grid-template-columns: 1fr; }
-            .how-steps { grid-template-columns: 1fr; gap: 0; }
+            .how-steps { grid-template-columns: 1fr; gap: 0; position: relative; }
             .how-step { 
-                display: flex; 
-                align-items: flex-start; 
-                gap: 12px; 
-                text-align: left; 
-                padding: 12px 0;
-                border-bottom: 1px solid var(--border-light);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0;
+                position: relative;
+                padding-bottom: 32px;
             }
-            .how-step:last-child { border-bottom: none; }
+            .how-step:last-child { padding-bottom: 0; }
             .how-step-num { 
-                width: 28px; 
-                height: 28px; 
-                min-width: 28px;
-                font-size: 13px; 
-                margin: 0;
-                border-width: 2px;
+                width: 56px; 
+                height: 56px; 
+                min-width: 56px;
+                font-size: 22px;
+                font-weight: 800;
+                margin: 0 0 16px 0;
+                border-width: 3px;
+                position: relative;
+                z-index: 1;
+                background: var(--off-white);
+                box-shadow: 0 4px 16px rgba(0, 168, 79, 0.15);
             }
-            .how-step-content { flex: 1; }
-            .how-step h3 { font-size: 15px; margin-bottom: 2px; }
-            .how-step p { font-size: 13px; line-height: 1.5; }
+            .how-step:nth-child(even) .how-step-num {
+                box-shadow: 0 4px 16px rgba(0, 118, 187, 0.15);
+            }
+            .how-step-content { 
+                flex: 1;
+                max-width: 280px;
+                position: relative;
+                z-index: 1;
+            }
+            .how-step h3 { 
+                font-size: 17px; 
+                margin-bottom: 6px;
+                color: var(--black);
+            }
+            .how-step p { 
+                font-size: 14px; 
+                line-height: 1.5;
+                color: var(--text-secondary);
+            }
             .trust-logos { gap: 24px; }
             .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
             .cta-box { padding: 32px 24px; }
@@ -1307,8 +1329,8 @@
                 <div class="how-step">
                     <div class="how-step-num">4</div>
                     <div class="how-step-content">
-                        <h3>Decide on Your Terms</h3>
-                        <p>Review the numbers. If it makes sense, we can talk next steps. If not, no hard feelings.</p>
+                        <h3>Plan Your Next Move</h3>
+                        <p>Review the numbers. If there's opportunity, explore how our platform can help you capture it.</p>
                     </div>
                 </div>
             </div>
