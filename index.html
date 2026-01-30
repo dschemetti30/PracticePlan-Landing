@@ -1760,44 +1760,45 @@
         <a href="#get-analysis" class="btn-primary">Get My Free Report</a>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
     <script>
-        // Partner list randomization
-        const partners = [
-            "Ascension Parish Schools", "University of Wisconsin-Parkside", "Donna ISD", "Mt. Mercy University",
-            "Mabank ISD", "Park University", "Galion School District", "Montana State-Billings",
-            "National Trail Schools", "Brownsville ISD", "956 Athletics", "Louisville Collegiate School",
-            "Victory Christian School", "Reynoldsburg City Schools", "Rochester School District", "KIPP Nashville",
-            "Harrison School District", "Lovejoy ISD", "Westhill Central School District", "Denison ISD",
-            "Valor Collegiate Academies", "Little Elm ISD", "East Chicago Schools", "Caddo Parish",
-            "Searcy School District", "Southwest ISD", "Blue Ridge ISD", "The Covenant School of Dallas",
-            "Zachary Schools", "Ponder ISD", "Kaufman ISD", "Spring Hill ISD", "Tom Bean ISD",
-            "Redline Athletics Coppell", "Chase Oaks", "Southfork Sports", "Melissa Sports",
-            "George Fox University", "Leadership Prep School", "Next Level Basketball", "Madisonville CISD",
-            "Prince Edward County Schools"
-        ];
+        document.addEventListener('DOMContentLoaded', function() {
+            // Partner list randomization
+            const partners = [
+                "Ascension Parish Schools", "University of Wisconsin-Parkside", "Donna ISD", "Mt. Mercy University",
+                "Mabank ISD", "Park University", "Galion School District", "Montana State-Billings",
+                "National Trail Schools", "Brownsville ISD", "956 Athletics", "Louisville Collegiate School",
+                "Victory Christian School", "Reynoldsburg City Schools", "Rochester School District", "KIPP Nashville",
+                "Harrison School District", "Lovejoy ISD", "Westhill Central School District", "Denison ISD",
+                "Valor Collegiate Academies", "Little Elm ISD", "East Chicago Schools", "Caddo Parish",
+                "Searcy School District", "Southwest ISD", "Blue Ridge ISD", "The Covenant School of Dallas",
+                "Zachary Schools", "Ponder ISD", "Kaufman ISD", "Spring Hill ISD", "Tom Bean ISD",
+                "Redline Athletics Coppell", "Chase Oaks", "Southfork Sports", "Melissa Sports",
+                "George Fox University", "Leadership Prep School", "Next Level Basketball", "Madisonville CISD",
+                "Prince Edward County Schools"
+            ];
 
-        function shuffleArray(array) {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            function shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
             }
-            return shuffled;
-        }
 
-        function buildPartnerTrack(partnerList) {
-            return partnerList.map((partner, index) => 
-                `<span class="partner-name">${partner}</span><span class="partner-divider">•</span>`
-            ).join('');
-        }
+            function buildPartnerTrack(partnerList) {
+                return partnerList.map((partner, index) => 
+                    `<span class="partner-name">${partner}</span><span class="partner-divider">•</span>`
+                ).join('');
+            }
 
-        const shuffledPartners = shuffleArray(partners);
-        const trackHTML = buildPartnerTrack(shuffledPartners);
-        document.getElementById('partner-track-1').innerHTML = trackHTML;
-        document.getElementById('partner-track-2').innerHTML = trackHTML;
+            const shuffledPartners = shuffleArray(partners);
+            const trackHTML = buildPartnerTrack(shuffledPartners);
+            document.getElementById('partner-track-1').innerHTML = trackHTML;
+            document.getElementById('partner-track-2').innerHTML = trackHTML;
 
-        // Smooth scroll for anchor links
+            // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1863,3 +1864,12 @@
                 });
                 
                 // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        }); // Close DOMContentLoaded
+    </script>
+</body>
+</html>
