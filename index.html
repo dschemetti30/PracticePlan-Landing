@@ -1507,7 +1507,7 @@
                 <div class="cta-form">
                     <div class="form-title">Start Your Free&nbsp;Report</div>
                     <div class="form-subtitle">Takes 2 minutes. Results delivered within 48 hours.</div>
-                    <form action="https://formspree.io/f/xkogbrap" method="POST" id="analysis-form">
+                    <form id="analysis-form">
                         <input type="hidden" name="_subject" value="New Free Facility Analysis Request">
                         <input type="hidden" name="_template" value="table">
                         <input type="text" name="_gotcha" style="display:none">
@@ -1559,9 +1559,6 @@
                             <div class="form-group full-width">
                                 <label class="form-label" for="facility-details">Facility Details <span class="form-label-optional">(optional)</span></label>
                                 <textarea id="facility-details" name="facility_details" class="form-input form-textarea" rows="3" placeholder="E.g., 2 gyms at $50/hr, 3 fields at $75/hr, ~10% utilization currently..."></textarea>
-                            </div>
-                            <div class="form-group full-width captcha-group">
-                                <div data-formspree-captcha></div>
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn-primary form-submit">
@@ -1760,7 +1757,6 @@
         <a href="#get-analysis" class="btn-primary">Get My Free Report</a>
     </div>
 
-    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Partner list randomization
@@ -1819,16 +1815,17 @@
             
             try {
                 const formData = new FormData(form);
-                const response = await fetch(form.action, {
+                const data = Object.fromEntries(formData);
+                
+                const response = await fetch('/api/submit', {
                     method: 'POST',
-                    body: formData,
+                    body: JSON.stringify(data),
                     headers: {
-                        'Accept': 'application/json'
+                        'Content-Type': 'application/json'
                     }
                 });
                 
                 if (response.ok) {
-                    const data = Object.fromEntries(formData);
                     const formContainer = form.parentElement;
                     formContainer.innerHTML = '<div style="text-align: center; padding: 40px 20px;"><div style="width: 64px; height: 64px; background: rgba(0, 168, 79, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#00a84f" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><h3 style="font-family: Montserrat, sans-serif; font-size: 24px; font-weight: 700; color: #000; margin-bottom: 12px;">You\'re all set, ' + (data.name ? data.name.split(' ')[0] : 'there') + '!</h3><p style="font-size: 15px; color: #555555; line-height: 1.6;">We\'ve received your request and will have your custom facility rental analysis ready within 48 hours. Check your inbox at <strong>' + data.email + '</strong>.</p></div>';
                 } else {
