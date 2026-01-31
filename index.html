@@ -1456,7 +1456,7 @@
         <div class="container">
             <div class="who-header">
                 <h2>Built for the people who manage facilities.</h2>
-                <p>If you're responsible for facilities, athletics, or operations - this is for you.</p>
+                <p>If you're responsible for facilities, athletics, recreation, or operations - this is for you.</p>
             </div>
             <div class="who-grid">
                 <div class="who-card">
@@ -1533,6 +1533,8 @@
                                     <option value="Athletic Director">Athletic Director</option>
                                     <option value="Business Officer / CFO">Business Officer / CFO</option>
                                     <option value="Superintendent">Superintendent</option>
+                                    <option value="Church Administrator">Church Administrator</option>
+                                    <option value="Recreation Director">Recreation Director</option>
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
@@ -1629,7 +1631,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                         </div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Gyms, athletic fields (football, soccer, baseball), multipurpose rooms, auditoriums, cafeterias, meeting rooms, tennis courts, tracks - essentially any space that could be rented to community groups, sports teams, or organizations.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Gyms, athletic fields, multipurpose rooms, auditoriums, fellowship halls, community centers, cafeterias, meeting rooms, tennis courts, tracks, sanctuaries - essentially any space that could be rented to community groups, sports teams, or organizations.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
@@ -1652,7 +1654,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-badge">About PracticePlan</div>
-                <p class="about-text">PracticePlan is a facility management platform built for K-12 schools, universities, and community organizations. We help you unlock the value of your spaces by streamlining the rental process, optimizing scheduling, and providing data-driven insights. Our platform handles everything from booking requests to payments - so your team can do more with the same resources, and your community gets better access to the spaces they need.</p>
+                <p class="about-text">PracticePlan is a facility management platform built for K-12 schools, universities, churches, and municipal recreation programs. We help you unlock the value of your spaces by streamlining the rental process, optimizing scheduling, and providing data-driven insights. Our platform handles everything from booking requests to payments - so your team can do more with the same resources, and your community gets better access to the spaces they need.</p>
                 <div class="about-stats">
                     <div class="about-stat">
                         <span class="about-stat-num">2023</span>
@@ -1762,17 +1764,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Partner list randomization
             const partners = [
-                "Ascension Parish Schools", "University of Wisconsin-Parkside", "Donna ISD", "Mt. Mercy University",
-                "Mabank ISD", "Park University", "Galion School District", "Montana State-Billings",
-                "National Trail Schools", "Brownsville ISD", "956 Athletics", "Louisville Collegiate School",
-                "Victory Christian School", "Reynoldsburg City Schools", "Rochester School District", "KIPP Nashville",
-                "Harrison School District", "Lovejoy ISD", "Westhill Central School District", "Denison ISD",
-                "Valor Collegiate Academies", "Little Elm ISD", "East Chicago Schools", "Caddo Parish",
-                "Searcy School District", "Southwest ISD", "Blue Ridge ISD", "The Covenant School of Dallas",
-                "Zachary Schools", "Ponder ISD", "Kaufman ISD", "Spring Hill ISD", "Tom Bean ISD",
-                "Redline Athletics Coppell", "Chase Oaks", "Southfork Sports", "Melissa Sports",
-                "George Fox University", "Leadership Prep School", "Next Level Basketball", "Madisonville CISD",
-                "Prince Edward County Schools"
+                "Prince Edward County Public Schools", "Spring Hill ISD", "Chase Oaks Church", "Southfork Sports Complex",
+                "Kaufman ISD", "Queen City ISD", "Southwest ISD", "East Dallas Christian Church",
+                "George Fox University", "Zachary Community Schools", "Blue Ridge ISD", "Searcy School District",
+                "Lake Dallas ISD", "Montana State University - Billings", "Leadership Prep School", "Texas Spurs Football Club",
+                "School City of East Chicago", "KIPP Nashville Public Schools", "Next Level Skills - Basketball Facility", "First United Methodist Church of Sachse",
+                "Reynoldsburg City School District", "Brownsville ISD", "Rochester School District", "Park University",
+                "Donna ISD", "Aubrey ISD", "The Covenant School of Dallas", "Louisville Collegiate School",
+                "Denison ISD", "Valor Collegiate Academies", "Westhill Central School District", "Victory Christian Schools",
+                "Ascension Public Schools", "956 Athletics Facility", "University of Wisconsin - Parkside", "Mount Mercy University",
+                "Galion City Schools", "National Trail Local School District", "Perry Local School District", "Madisonville CISD",
+                "Harrison School District", "Little Elm ISD", "Lovejoy ISD", "Melissa Sports Complex",
+                "Ponder ISD", "Caddo Parish Public Schools", "Harlingen CISD", "Redline Athletics - Coppell"
             ];
 
             function shuffleArray(array) {
